@@ -14,7 +14,7 @@ const path = require("path")
 
 //database connection
 
-try{mongoose.connect("mongodb://localhost:27019/smashblog")
+try{mongoose.connect("mongodb+srv://smash:test123@actorsandsongs.xi6ty.mongodb.net/smashblog?retryWrites=true&w=majority&appName=actorsAndSongs")
     .then(()=>{console.log("Database connected")})
     } catch(err){console.log(err)}
 
@@ -22,7 +22,7 @@ try{mongoose.connect("mongodb://localhost:27019/smashblog")
 //middlewares
 app.use(cors({
 
-    origin: 'http://localhost:3000', 
+    origin: 'https://67a04d73563cdadcc082c60a--strong-otter-2d0ca0.netlify.app/', 
     credentials: true 
     
  }))
