@@ -22,7 +22,7 @@ try{mongoose.connect("mongodb+srv://smash:test123@actorsandsongs.xi6ty.mongodb.n
 //middlewares
 app.use(cors({
 
-    origin: 'https://67a04d73563cdadcc082c60a--strong-otter-2d0ca0.netlify.app/', 
+    origin: 'https://smash-blog.netlify.app/', 
     credentials: true 
     
  }))
