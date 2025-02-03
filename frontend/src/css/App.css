@@ -48,6 +48,19 @@
 
 }
 
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines before truncating */
+  -webkit-box-orient: vertical;
+  line-clamp: 3; /* Standard property, for future compatibility */
+  box-orient: vertical;
+  line-height: 1.5em;
+  max-height: 4.5em; /* Adjust based on line-clamp */
+}
+
+
 /* .container p:last-child {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;

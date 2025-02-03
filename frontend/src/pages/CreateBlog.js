@@ -1,21 +1,23 @@
 import { Link, useNavigate } from "react-router-dom"
 import { BACKEND_URL } from "../config"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import BlogSuccess from "./BlogSuccess"
 import Notauth from "./Notauth"
+import { UserContext } from "../App"
 
 
 
 export default function CreateBlog(){
     
 const [ blogCreatedStatus , setBlogCreatedStatus ] = useState(false)
+const { validatedUser , setValidatedUser }= useContext(UserContext)
 const navigate = useNavigate()
 
 // token validation
     const token = document.cookie.split(";")
     .find(cookie => cookie.trim().startsWith(`token=`))
 
-    if(!token){ return <Notauth/>}
+    if(!validatedUser){ return <Notauth/>}
     
     
 

@@ -8,13 +8,17 @@ const Home = function(){
     const [blogs , setBlogs ] = useState([])
 
     //requesting blogs
-
+ 
     useEffect(()=>{
-    fetch(`${BACKEND_URL}/blog/home`)
+        try{
+    fetch(`${BACKEND_URL}/blog/home`,{
+        method: 'GET',
+        credentials: 'include'
+    })
     .then(res => res.json())
     .then(data => {console.log("data received" , data.allBlog)
           setBlogs(data.allBlog)
-    })
+    })}catch(err){ console.log( "the error is : " , err)}
 },[])
      
 

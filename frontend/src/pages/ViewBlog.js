@@ -18,7 +18,9 @@ export  default function ViewBlog(){
     useEffect(()=>{
     try{ 
 
-    fetch(`${BACKEND_URL}/blog/${id}`)
+    fetch(`${BACKEND_URL}/blog/${id}`,{
+        method: 'GET',
+        credentials: 'include'})
     .then(res=> res.json())
     .then(data => {
         setBlog(data.blog)

@@ -7,7 +7,7 @@ import Notauth from "./Notauth"
 export default function Dashboard (){
  
     const [user,setUser] = useState()
-       const { userRef }= useContext(UserContext)
+       const { userRef , validatedUser , setValidatedUser }= useContext(UserContext)
 
     let currUser;
     let token;
@@ -26,11 +26,13 @@ export default function Dashboard (){
             try {
         
                 fetch(`${BACKEND_URL}/blog/welcomeblog`,{
+                    method: "GET",
                     credentials: 'include'
                 })
                 .then(res => res.json())
                 .then(data => {
-
+                
+                console.log("data from dashboard : " , data )
                 console.log("user data from dashboard : "  , data.user)
 
                 // token = document.cookie.split(";")
@@ -38,7 +40,7 @@ export default function Dashboard (){
 
                 
 
-                    setUser(data.user)
+                    setValidatedUser(data.user)
                     // return data.user;
                 })
         
@@ -59,12 +61,16 @@ export default function Dashboard (){
       
     
 
-    // //token validation
-    token = document.cookie.split(";")
-    .find(cookie => cookie.trim().startsWith(`token=`))
+    // // //token validation
+    // token = document.cookie.split(";")
+    // .find(cookie => cookie.trim().startsWith(`token=`))
 
-     if(!token){ return <Notauth/>}
-    
+    //  if(!token){ return <Notauth/>}
+
+    // changes starts here in validation
+
+     
+     if(!validatedUser){ return <Notauth/>}
     
       
       
@@ -79,7 +85,7 @@ export default function Dashboard (){
     return <div className="container text-center">
 
 
-        {user ? <h1>Login Successfull , Welcome Mr. {user.fullName} </h1> : <h1>loading...</h1>}
+        {validatedUser ? <h1>Login Successfull , Welcome Mr. {validatedUser.fullName} </h1> : <h1>loading...</h1>}
     
          
 

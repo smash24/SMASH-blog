@@ -1,6 +1,7 @@
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import '../css/App.css';
 import { useState } from "react";
+import { BACKEND_URL } from "../config";
 
 export default function SignUp(){
     const [messageInSignup, setMessageInSignup] = useState("")
@@ -25,7 +26,7 @@ export default function SignUp(){
              } 
 
 
-               await fetch("http://localhost:8000/user/newuser", {
+               await fetch(`${BACKEND_URL}/user/newuser`, {
                   method:"POST",
                   body: JSON.stringify({fullName,
                      email: email.toLowerCase() ,

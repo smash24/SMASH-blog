@@ -21,12 +21,13 @@ function App() {
   
 
   //state value for Create blog heading
+  const [validatedUser,setValidatedUser] = useState()
   const [createBlogEnabler , setCreateBlogEnabler ] = useState(false)
   const userRef = useRef();
 
 
   return (<>
-  <UserContext.Provider value={{createBlogEnabler , setCreateBlogEnabler,  userRef }}>
+  <UserContext.Provider value={{createBlogEnabler , setCreateBlogEnabler,  userRef , validatedUser , setValidatedUser }}>
   <Router>
   <div className="App">
     <header className="App-header">
