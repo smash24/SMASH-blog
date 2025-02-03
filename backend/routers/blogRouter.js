@@ -10,7 +10,7 @@ router.get("/home" , homeBlogs )
 
 
 
-router.post("/welcomeblog", welcomeBlog )
+router.get("/welcomeblog", welcomeBlog )
 // router.get("/comments", displayComments )
 
 router.get("/:id", getBlog )
