@@ -80,8 +80,14 @@ exports.loginUser = async function(req,res,next) {
           
           //setting up cookie
           // res.cookie(`token_${loggingUser._id}` , token )
+
+          //token correction starts  ,   before that only 'res.cookie(`token` , token )'  was present
           
-           res.cookie(`token` , token )
+           res.cookie(`token` , token , { 
+            httpOnly: true, 
+            secure: true, 
+            sameSite: 'None' 
+        })
 
          // res.cookie("token" , token , { sameSite: 'None' , secure : true } )
         
